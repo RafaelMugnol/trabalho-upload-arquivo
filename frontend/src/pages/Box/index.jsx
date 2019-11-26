@@ -9,7 +9,7 @@ import socket from 'socket.io-client';
 import api from '../../services/api';
 
 // Images
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo2.svg';
 
 // CSS
 import './style.css';
@@ -32,7 +32,7 @@ export default class Box extends Component {
 
   subscribeToNewFiles = () => {
     const { id } = this.props.match.params;
-    const io = socket('https://oministack-backend-manzoli.herokuapp.com');
+    const io = socket('https://3333-d0071a41-fceb-4767-9bc0-b4a9dfba6286.ws-us02.gitpod.io');
 
     io.emit('connectRoom', id);
 
@@ -75,7 +75,7 @@ export default class Box extends Component {
             </div>
           )}
         </Dropzone>
-
+        
         <ul>
           {files &&
             files.map(file => (

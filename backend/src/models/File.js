@@ -20,7 +20,7 @@ const File = new mongoose.Schema(
 );
 
 File.virtual('url').get(function() {
-  const url = process.env.URL || 'http://localhost:3333';
+  const url = process.env.URL || 'https://3333-d0071a41-fceb-4767-9bc0-b4a9dfba6286.ws-us02.gitpod.io';
 
   return `${url}/files/${encodeURIComponent(this.path)}`;
 });

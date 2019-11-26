@@ -1,1 +1,0 @@
-# omnistack-6-frontend

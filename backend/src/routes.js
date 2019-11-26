@@ -7,12 +7,19 @@ const routes = express.Router();
 const BoxController = require('./controllers/BoxController');
 const FileController = require('./controllers/FileController');
 
-routes.get('/', (req, res) => {
-  return res.send('Hello World');
-});
-routes.get('/boxes/:id', BoxController.show);
+const basicAuth = require('express-basic-auth')
 
-routes.post('/boxes', BoxController.store);
+routes.get('/', (req, res) => {
+  return res.send('URL da API');
+});
+routes.get('/boxes/:id', basicAuth({
+    users: { 'admin': 'senhasecreta' }
+}), BoxController.show);
+
+routes.post('/boxes', basicAuth({
+    users: { 'admin': 'senhasecreta' }
+}), BoxController.store);
+
 routes.post(
   '/boxes/:id/files',
   multer(multerConfig).single('file'),

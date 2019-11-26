@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 
 // Images
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo2.svg';
 
 // CSS
 import './style.css';
@@ -43,9 +43,9 @@ export default class Main extends Component {
           <input
             value={newBox}
             onChange={this.handleInputChange}
-            placeholder="Criar um Box"
+            placeholder="Nome do Aluno"
           />
-          <button type="submit">Criar</button>
+          <button type="submit">Criar / Acessar</button>
         </form>
       </div>
     );

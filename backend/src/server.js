@@ -7,6 +7,13 @@ const app = express();
 
 app.use(cors());
 
+//const auth = require('./auth')
+//app.use(auth);
+// const basicAuth = require('express-basic-auth')
+// app.use(basicAuth({
+//     users: { 'admin': 'senhasecreta' }
+// }));
+
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
@@ -16,12 +23,13 @@ io.on('connection', socket => {
   });
 });
 
-mongoose.connect(
-  'mongodb+srv://omnistack:omnistack@cluster0-o7fua.mongodb.net/omnistack?retryWrites=true',
-  {
-    useNewUrlParser: true
-  }
-);
+
+mongoose.connect('mongodb+srv://admin:admin@cluster0-a8meg.mongodb.net/trabalhoupload?retryWrites=true&w=majority', {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useFindAndModify: false,
+});
+
 
 app.use((req, res, next) => {
   req.io = io;
